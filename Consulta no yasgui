@@ -1,0 +1,12 @@
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+SELECT DISTINCT ?title ?publisher ?playingTime
+WHERE { ?sujeito rdf:type dbo:VideoGame ;
+                 dbp:title ?title ;
+                 dbp:publisher ?publisher ;
+                 dbp:playingTime ?playTime.
+		 BIND ( xsd:float(?playTime) as ?playingTime)
+} ORDER BY DESC(?playTime) ?title
+    LIMIT 100
+    
