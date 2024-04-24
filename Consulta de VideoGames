@@ -1,0 +1,18 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+
+SELECT ?Title (SAMPLE(?Publisher) AS ?Publisher) (MIN(?PlayingTime) AS ?PlayingTime) ?Date
+WHERE { 
+  ?subject rdf:type dbo:VideoGame ;
+           dbp:title ?Title ;
+           dbp:publisher ?Publisher ;
+           dbp:playingTime ?PlayTime ;
+           dbp:date ?Date.
+  
+  BIND (xsd:float(IF(?PlayTime < 0, ABS(?PlayTime), ?PlayTime)) AS ?PlayingTime)
+} 
+GROUP BY ?Title ?Date
+ORDER BY DESC(?Date)
+LIMIT 100
