@@ -1,0 +1,19 @@
+PREFIX db: <http://dbpedia.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbp: <http://dbpedia.org/property/>
+
+SELECT ?Titulo (SAMPLE(?Autor) AS ?Autor) (SAMPLE(?País) AS ?País) (SAMPLE(?Paginas) AS ?Paginas) (SAMPLE(?Genero) AS ?Genero) ?DataLançamento ?Linguagem
+WHERE {
+    ?sujeito rdf:type dbo:Book;
+             dbo:author ?Autor ;
+             dbp:name ?Titulo ;
+             dbp:country ?País ;
+             dbo:numberOfPages ?Paginas ;
+             dbo:literaryGenre ?Genero ;
+             dbp:releaseDate ?DataLançamento ;
+             dbp:language ?Linguagem .
+}
+GROUP BY ?Titulo ?DataLançamento ?Linguagem
+LIMIT 100
