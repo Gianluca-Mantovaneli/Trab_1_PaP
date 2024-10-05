@@ -41,3 +41,49 @@ O código principal está organizado em predicados que realizam consultas à DBp
                    dbp:language ?linguagem .
             } LIMIT 1000",
             [ endpoint('http://dbpedia.org/sparql')]) ).
+```
+
+## Como Usar
+
+1. **Clone o repositório**:
+
+   ```bash
+   git clone https://github.com/seu_usuario/dbpedia_books_query_system.git
+   cd dbpedia_books_query_system
+   ```
+
+2. **Instale o SWI-Prolog**: O sistema foi desenvolvido com SWI-Prolog. Certifique-se de ter o SWI-Prolog instalado em sua máquina.
+
+3. **Carregue o arquivo em Prolog**:
+   Abra o SWI-Prolog e carregue o arquivo de código-fonte.
+
+   ```prolog
+   ?- [seu_arquivo].
+   ```
+
+4. **Realize consultas**: Você pode agora fazer consultas usando os predicados disponíveis. Exemplos de consultas estão listados no final do arquivo de código.
+
+## Exemplos de Consultas
+
+- **Verificar se um livro é longo**:
+  ```prolog
+  ?- livro_longo("Before Mars (novel)").
+  ```
+
+- **Listar livros de um autor**:
+  ```prolog
+  ?- livros_autor('http://dbpedia.org/resource/Stephen_King', Livros).
+  ```
+
+- **Listar livros com mais de 400 páginas**:
+  ```prolog
+  ?- livros_com_mais_paginas(400, Livros).
+  ```
+
+## Contribuições
+
+Contribuições são bem-vindas! Se você encontrar um bug ou tiver sugestões para melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## Licença
+
+Este projeto está licenciado sob a MIT License. Veja o arquivo `LICENSE` para mais detalhes.
