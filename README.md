@@ -75,7 +75,7 @@ O código principal está organizado em predicados que realizam consultas à DBp
   ?- livros_autor('genero do livro', Livros).
   ```
 
-- **Listar livros com mais de 400 páginas**:
+- **Listar livros com mais de x páginas**:
   ```prolog
   ?- livros_com_mais_paginas(numero de paginas, Livros).
   ```
