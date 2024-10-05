@@ -67,17 +67,17 @@ O código principal está organizado em predicados que realizam consultas à DBp
 
 - **Verificar se um livro é longo**:
   ```prolog
-  ?- livro_longo("Before Mars (novel)").
+  ?- livro_longo("Nome do livro").
   ```
 
 - **Listar livros de um autor**:
   ```prolog
-  ?- livros_autor('http://dbpedia.org/resource/Stephen_King', Livros).
+  ?- livros_autor('genero do livro', Livros).
   ```
 
 - **Listar livros com mais de 400 páginas**:
   ```prolog
-  ?- livros_com_mais_paginas(400, Livros).
+  ?- livros_com_mais_paginas(numero de paginas, Livros).
   ```
 
 ## Contribuições
